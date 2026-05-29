@@ -56,22 +56,54 @@ Sử dụng mô hình AI pre-trained lớn (như Segment Anything Model - SAM ho
 ```text
 CURRENT STATE — 120 phút / 100 ảnh
 
-[1. Tải ảnh & tạo project trong tool: 10']
-→ [2. Vẽ bounding box thủ công từng vật thể: 90']  <-- BOTTLENECK (Nhàm chán, mỏi mắt)
-→ [3. Chọn nhãn (class) cho từng box: 15']
-→ [4. Export dữ liệu nhãn (YOLO/VOC/COCO): 5']
+           +---------------------------------------------+
+           | 1. Tải ảnh & tạo project trong tool (10')   |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 2. Vẽ bounding box thủ công từng vật thể (90') <--- [BOTTLENECK]
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 3. Chọn nhãn (class) cho từng box (15')     |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 4. Export dữ liệu nhãn (5')                 |
+           +---------------------------------------------+
 ```
 
 ### Draft future workflow
 ```text
 FUTURE STATE — 20 phút / 100 ảnh
 
-[1. Tải ảnh vào tool tích hợp AI: 5']
-→ [2. AI tự động vẽ box và dự đoán class (Auto-label): 2']
-→ [3. Kỹ sư AI kiểm duyệt, điều chỉnh box lệch & sửa class sai: 10']  <-- HUMAN BOUNDARY (Kiểm soát chất lượng)
-→ [4. Export dữ liệu nhãn đã chuẩn hóa: 3']
-
-Fallback: Nếu AI dự đoán sai/lệch quá nhiều ở các class hiếm, kỹ sư bỏ qua dự đoán AI và tự vẽ tay thủ công.
+           +---------------------------------------------+
+           | 1. Tải ảnh vào tool tích hợp AI (5')        |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 2. AI tự động vẽ box & dự đoán class (2')   |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 3. Kỹ sư AI kiểm duyệt & chỉnh sửa (10')    | <--- [HUMAN BOUNDARY]
+           +-------+-----------------------------+-------+
+                   |                             |
+     (AI dự đoán OK|                             | (AI dự đoán sai lệch nhiều / Fallback)
+            hoặc đã|                             |
+         chỉnh sửa)|                             v
+                   |                    +--------+----------------------------+
+                   |                    | Kỹ sư bỏ qua AI & vẽ tay thủ công   |
+                   |                    +--------+----------------------------+
+                   v                             |
+           +-------+-----------------------------+-------+
+           | 4. Export dữ liệu nhãn đã chuẩn hóa (3')     |
+           +---------------------------------------------+
 ```
 
 ---
@@ -118,22 +150,58 @@ Sử dụng AI (Computer Vision) để tự động đếm và phân loại phư
 ```text
 CURRENT STATE — 14 ngày (thử nghiệm thực địa)
 
-[1. Lên phương án phân làn sơ bộ: 1 ngày]
-→ [2. Đặt dải phân cách tạm thời tại nút giao thực tế: 1 buổi]
-→ [3. Phân công người đứng đếm xe giờ cao điểm (thủ công): 7-10 ngày]  <-- BOTTLENECK (Tốn nhân lực, kẹt xe thực tế)
-→ [4. Nhập dữ liệu & viết báo cáo thống kê: 2 ngày]
-→ [5. Stakeholder phê duyệt phương án: 2 ngày]
+           +---------------------------------------------+
+           | 1. Lên phương án phân làn sơ bộ (1 ngày)    |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 2. Đặt dải phân cách tạm thời (1 buổi)      |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 3. Đứng đếm xe thủ công (7-10 ngày)         | <--- [BOTTLENECK]
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 4. Nhập dữ liệu & viết báo cáo (2 ngày)     |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 5. Stakeholder phê duyệt phương án (2 ngày)  |
+           +---------------------------------------------+
 ```
 
 ### Draft future workflow
 ```text
 FUTURE STATE — 2 ngày (mô phỏng số + AI)
 
-[1. AI tự động đếm & thống kê lưu lượng xe qua camera hiện trạng: 1 ngày]
-→ [2. Nhập dữ liệu vào môi trường mô phỏng (sinh ngẫu nhiên xe theo lưu lượng): 2 giờ]
-→ [3. Chạy thuật toán AI tối ưu (Generative/RL) đề xuất phương án phân làn tối ưu: 1 giờ]  <-- AI Intervention
-→ [4. Chuyên gia duyệt kết quả mô phỏng tối ưu nhất: 4 giờ]  <-- HUMAN BOUNDARY (Kiểm duyệt và chốt phương án)
-→ [5. Áp dụng phương án tối ưu nhất ra thực địa: 1 buổi]
+           +---------------------------------------------+
+           | 1. AI tự động đếm & thống kê qua camera (1d)|
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 2. Nhập dữ liệu vào môi trường mô phỏng (2h)|
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 3. Chạy thuật toán AI đề xuất phương án (1h)| <--- [AI INTERVENTION]
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 4. Chuyên gia duyệt kết quả tối ưu (4h)     | <--- [HUMAN BOUNDARY]
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 5. Áp dụng phương án ra thực địa (1 buổi)   |
+           +---------------------------------------------+
 ```
 
 ---
@@ -180,22 +248,58 @@ AI hỗ trợ chuyển đổi các mô tả dự án sơ sài của sinh viên t
 ```text
 CURRENT STATE — 240 phút (4 tiếng)
 
-[1. Chọn & căn chỉnh template thiết kế: 30']
-→ [2. Liệt kê thông tin học vấn & dự án môn học: 30']
-→ [3. Tự viết mô tả chi tiết dự án (tech stack, vai trò, kết quả): 120']  <-- BOTTLENECK (Mơ hồ, thiếu chuẩn)
-→ [4. Tự chỉnh sửa lỗi chính tả, dịch thuật ngữ kỹ thuật: 30']
-→ [5. Định dạng căn chỉnh lề vừa trang: 30']
+           +---------------------------------------------+
+           | 1. Chọn & căn chỉnh template thiết kế (30') |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 2. Liệt kê học vấn & dự án môn học (30')    |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 3. Tự viết mô tả chi tiết dự án (120')      | <--- [BOTTLENECK]
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 4. Tự sửa chính tả, dịch thuật ngữ (30')    |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 5. Định dạng căn chỉnh lề vừa trang (30')   |
+           +---------------------------------------------+
 ```
 
 ### Draft future workflow
 ```text
 FUTURE STATE — 45 phút
 
-[1. Nhập thông tin thô (nháp) vào CV Builder: 15']
-→ [2. AI đề xuất viết lại mô tả dự án theo chuẩn STAR & tối ưu keyword: 3']
-→ [3. AI tự động kiểm tra lỗi format và chính tả: 2']
-→ [4. Sinh viên review nội dung, đối chiếu JD thực tế để tinh chỉnh: 20']  <-- HUMAN BOUNDARY (Kiểm duyệt tính trung thực)
-→ [5. Xuất file PDF CV chuẩn ATS: 5']
+           +---------------------------------------------+
+           | 1. Nhập thông tin thô vào CV Builder (15')  |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 2. AI đề xuất viết lại theo STAR & key (3') | <--- [AI SUGGESTION]
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 3. AI tự động kiểm tra format & chính tả (2')|
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 4. Sinh viên review & tinh chỉnh theo JD(20')| <--- [HUMAN BOUNDARY]
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 5. Xuất file PDF CV chuẩn ATS (5')          |
+           +---------------------------------------------+
 ```
 
 ---
