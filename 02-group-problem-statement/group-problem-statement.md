@@ -1,144 +1,104 @@
-# 02 — Group Problem Statement: Viết CV ứng tuyển chuẩn kỹ thuật cho sinh viên
+# 02 — Group Problem Statement: Vibe code chuẩn - Socratic Coding Tutor (Workflow Edition)
 
-Tài liệu này tổng hợp kết quả làm việc nhóm nhằm phân tích, xác định và xây dựng đề xuất ứng dụng AI vào bài toán viết CV ứng tuyển dành cho sinh viên khối ngành kỹ thuật.
+Tài liệu này tổng hợp kết quả làm việc nhóm nhằm phân tích, xác định và thiết kế đề xuất ứng dụng AI (Multi-turn Workflow) vào bài toán "Giải thích logic & Debug" dành cho sinh viên học lập trình, với phương pháp tiếp cận Socratic (gợi mở thay vì đưa đáp án).
 
 ---
 
 ## 1. Nhật ký hội tụ nhóm (Group Convergence)
 
-Nhóm gồm 4 thành viên (Duy Anh, Nam, Lan, Minh) đã trình bày 4 candidate problems được trích xuất từ trải nghiệm thực tế:
+Nhóm gồm 4 thành viên (Trần Duy Anh, Đỗ Nhật Minh, Nguyễn Tuấn Phong, Nguyễn Hữu Đức) đã trình bày tổng cộng 12 candidate problems từ trải nghiệm thực tế:
 
-### 1.1. Danh sách Candidate Problems
-| # | Người đề xuất | Candidate problem | Actor | Điểm nghẽn | Cảm nhận nhanh |
-|---|---|---|---|---|---|
-| 1 | Duy Anh | Viết CV ứng tuyển chuẩn kỹ thuật | Sinh viên năm cuối | Viết mô tả dự án chuẩn STAR & chèn từ khóa JD | Rất nhức nhối, thiết thực |
-| 2 | Nam | Tóm tắt bài báo khoa học | Sinh viên nghiên cứu | Đọc hiểu và chắt lọc nội dung cốt lõi | Hay nhưng đã có nhiều tool miễn phí |
-| 3 | Lan | Sắp xếp lịch trình tránh burnout | Sinh viên đi làm thêm | Phân bổ thời gian khi có việc đột xuất | Hơi nghiêng về quản lý cá nhân |
-| 4 | Minh | Gán nhãn dữ liệu Object Detection | Kỹ sư AI / Labeler | Vẽ bounding box thủ công | Rõ ràng nhưng tích hợp phức tạp |
+### 1.1. Danh sách 12 Candidate Problems
+| # | Người đề xuất | Candidate problem | Người gặp vấn đề | Điểm nghẽn | Cảm nhận nhanh |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| 1 | Trần Duy Anh | Viết CV ứng tuyển chuẩn kỹ thuật cho sinh viên | Sinh viên ngành kỹ thuật | Tự viết mô tả chi tiết dự án (chuẩn STAR) và căn chỉnh format | Workflow |
+| 2 | Trần Duy Anh | Điều phối luồng giao thông tại nút giao | Cán bộ CSGT, chuyên viên quy hoạch | Thử nghiệm thực địa gây ùn tắc, đứng đếm xe thủ công | Workflow |
+| 3 | Trần Duy Anh | Gán nhãn dữ liệu ảnh Object Detection | Kỹ sư AI, Data Labeler | Vẽ bounding box và gán nhãn thủ công gây mỏi mắt, sai sót | Workflow |
+| 4 | Đỗ Nhật Minh | Chấm và cộng điểm tương tác tự động | Trợ giảng (TA) và Học viên | Đọc dò tay từng dòng log chat và đối chiếu tên hiển thị | Workflow |
+| 5 | Đỗ Nhật Minh | Hỗ trợ cài đặt môi trường và sửa lỗi Lab | Học viên mới và Trợ giảng (TA) | Chờ TA rảnh để đọc tin và ping-pong lấy bối cảnh máy | Workflow |
+| 6 | Đỗ Nhật Minh | Giải đáp tự động quy định khóa học | Học viên, TA, BTC | TA lặp lại việc lục tìm link và gõ lại câu trả lời cũ | Workflow |
+| 7 | Nguyễn Tuấn Phong | Giải thích logic & Debug (Vibe code chuẩn) | Học viên (đặc biệt là non-tech) | Bế tắc tự sửa và chọn cách copy code AI/bạn bè | Workflow |
+| 8 | Nguyễn Tuấn Phong | Xử lý FAQ & Giảm tải cho Trợ giảng | Học viên & Lab Coach | Học viên chờ lâu, TA lặp lại công việc tay chân rep tin | Workflow |
+| 9 | Nguyễn Tuấn Phong | Tổng hợp thông tin & Link phân tán | Học viên | Cuộn tìm Discord và lục lọi Outlook Mail mất thời gian | Workflow |
+| 10 | Nguyễn Hữu Đức | Khó truy cập học liệu | Sinh viên mới nhập học | Thao tác tìm kiếm đúng tài liệu đa nền tảng dễ nhầm lẫn | Workflow |
+| 11 | Nguyễn Hữu Đức | Thiếu trợ giảng hỗ trợ không kịp | Sinh viên trong giờ lab/assignment | Coach không đủ, thời gian chờ hỗ trợ quá lâu | Agent |
+| 12 | Nguyễn Hữu Đức | Nhắc nhở deadline chưa hiệu quả | Sinh viên nhiều lớp/deadline | Không có hệ thống nhắc việc, lỡ/trôi thông báo | Workflow |
 
 ### 1.2. Phân nhóm (Clustering)
-* **Cluster A (Hỗ trợ chuẩn bị hồ sơ ứng tuyển):** Viết CV (Duy Anh), Tối ưu LinkedIn profile.
-* **Cluster B (Tóm tắt & Xử lý tài liệu):** Tóm tắt bài báo khoa học (Nam), Soạn tài liệu học tập.
-* **Cluster C (Tối ưu hóa quy trình kỹ thuật):** Gán nhãn dữ liệu Object Detection (Minh), Auto-build test.
-* **Cluster D (Quản lý cá nhân):** Sắp xếp lịch trình tránh burnout (Lan).
+| Cluster | Candidates included | Pattern chung | Ghi chú |
+| :---- | :---- | :---- | :---- |
+| A. Hỗ trợ gỡ lỗi & Lab | 5, 7, 11 | Học viên kẹt kỹ thuật nhưng TA phản hồi chậm, dẫn đến mất gốc/nản chí. | Gom chung vì đều xoay quanh trải nghiệm thực hành Lab và thiếu hụt TA. |
+| B. Quản lý thông tin & Hỏi đáp | 6, 8, 9, 10, 12 | Học viên hỏi đi hỏi lại hoặc miss thông tin phân tán; TA quá tải đóng vai "tổng đài viên". | Cùng giải bài toán truy xuất thông tin (RAG/FAQ) và cảnh báo. |
+| C. Tối ưu tác vụ thủ công lặp lại | 3, 4 | Dùng mắt và tay thao tác hàng trăm lần (dò điểm, vẽ khung ảnh) dễ sai sót. | Rõ ràng về metric thời gian nhưng mức độ tư duy (reasoning) của AI thấp. |
+| D. Tác vụ chuyên môn sâu | 1, 2 | Cần chuyên môn ngành hẹp (đánh giá CV chuẩn ATS, mô phỏng giao thông). | Scope khá lớn so với một bài thực hành Lab ngắn hạn. |
 
 ### 1.3. Đánh giá và Chấm điểm đồng thuận
-Nhóm tiến hành chấm điểm các shortlist candidates dựa trên thang điểm từ 1 đến 5 cho các tiêu chí:
+Nhóm tiến hành chấm điểm 3 candidates đại diện các cluster (thang điểm 1-5):
 
 | Candidate | Actor rõ | Workflow rõ | Pain có evidence | Impact đo được | Làm trong lab | So sánh R/W/A được | Nhóm hiểu domain | Tổng |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| **Viết CV chuẩn kỹ thuật** | **5** | **5** | **5** | **5** | **5** | **5** | **5** | **35** |
-| Gán nhãn dữ liệu ảnh | 4 | 5 | 4 | 4 | 3 | 4 | 4 | 28 |
-| Tóm tắt bài báo khoa học | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 28 |
+| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+| **Giải thích logic & Debug** | 5 | 5 | 5 | 5 | 5 | 5 | 5 | **35** |
+| Chấm điểm tương tác | 5 | 5 | 4 | 5 | 4 | 5 | 4 | 32 |
+| Viết CV kỹ thuật | 4 | 4 | 3 | 4 | 4 | 4 | 4 | 27 |
 
-* **Lựa chọn cuối cùng:** **Viết CV ứng tuyển chuẩn kỹ thuật cho sinh viên**.
-* **Lý do chọn:** Vấn đề có nỗi đau lớn, ảnh hưởng trực tiếp đến việc làm của sinh viên mới ra trường. Quy trình tuyến tính rõ ràng, dễ đo lường bằng thời gian và chất lượng đầu ra.
-* **Lý do loại các bài khác:** Gán nhãn ảnh đòi hỏi việc tích hợp hạ tầng công nghệ phức tạp và chi phí GPU lớn. Tóm tắt bài báo khoa học có giá trị gia tăng thấp vì thị trường đã có quá nhiều công cụ miễn phí.
+* **Lựa chọn cuối cùng:** **Giải thích logic & Debug (Vibe code chuẩn)** của Nguyễn Tuấn Phong.
+* **Lý do chọn:** Vấn đề cực kỳ sát sườn với giáo dục: Học viên nộp bài chạy được nhờ copy AI nhưng rỗng kiến thức. Thiết kế workflow có "Human boundary" rất chuẩn (AI chỉ gợi ý lỗi, học viên phải tự sửa). Rất dễ build prototype bằng một Workflow AI (Socratic Prompt) ngay trong buổi Lab để kiểm chứng.
 
 ---
 
 ## 2. Kiểm chứng nhanh (Validation) & Research giải pháp
 
 ### 2.1. Kết quả kiểm chứng nhanh (Quick Validation)
-* **Phỏng vấn nhanh (3 SV CNTT):** Đều xác nhận việc mô tả dự án theo cấu trúc STAR và chọn từ khóa công nghệ khớp JD là bước mất thời gian nhất (thường tốn hơn 2 tiếng).
-* **Khảo sát (8 SV trong lớp):** 7/8 bạn mất từ 2-4 tiếng để hoàn thành 1 bản CV hoàn chỉnh và cảm thấy thiếu tự tin về các từ khóa kỹ thuật.
-* **Review CV mẫu (15 bản):** 90% lỗi CV của sinh viên là viết chung chung (ví dụ: "Làm trang web", "Tham gia dự án"), thiếu các con số định lượng kết quả và cấu trúc STAR rõ ràng.
+* **Khảo sát nhanh (Discord Poll - 10 người):** 90% học viên xác nhận phải dùng ChatGPT giải hộ vì áp lực thời gian nộp Lab, dẫn tới hổng kiến thức nghiêm trọng.
+* **Phỏng vấn sâu (2 Học viên, 1 TA):**
+  - Học viên thừa nhận việc copy code AI là do "sợ trễ deadline" và "TA phản hồi quá chậm". Học viên muốn có tool chỉ lỗi thay vì cho sẵn đáp án.
+  - TA xác nhận thời gian kẹt lỗi kéo dài 20-30 phút/case gây quá tải.
+* **Quyết định định hình AI:** AI phải giải thích cực kỳ ngắn gọn, khoanh vùng lỗi, tuyệt đối không sinh code. Thêm fallback tag TA nếu hỏi 3 lần vẫn sai.
 
 ### 2.2. Research giải pháp đã có
-* **Kickresume / Resume.io:** Hỗ trợ sinh mô tả tự động theo chức danh. *Điểm yếu:* Nội dung rập khuôn, thiếu chiều sâu kỹ thuật thực tế của dự án, dễ bị trùng lặp.
-* **Jobscan ATS Checker:** Quét CV đối chiếu với JD để chấm điểm từ khóa. *Điểm yếu:* Chỉ chỉ ra từ khóa thiếu, không hỗ trợ viết lại câu mô tả theo chuẩn STAR.
-* **ChatGPT/Claude với prompt tự chế:** Viết lại câu từ rất tốt. *Điểm yếu:* Sinh viên không biết viết prompt chuẩn, dễ dẫn đến việc AI tự bịa đặt thông tin (hallucinate).
-* **Bài học rút ra:** AI cần hỗ trợ viết lại dựa trên dữ liệu thô chi tiết do chính người dùng cung cấp (form-based) và tự động so sánh, chèn từ khóa từ JD mục tiêu, chứ không sinh nội dung tự do từ số không.
+| Nguồn / tool / case | Link | Họ giải quyết phần nào? | Điểm mạnh | Khoảng trống / rủi ro | Bài học cho nhóm |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| **CS50 Duck (Harvard CS50)** | [CS50's Duck Debugger](https://cs50.harvard.edu/x/2023/honesty/) | Nhận mã lỗi và giải thích khái niệm. | Thiết kế System Prompt tuyệt đối không viết code thay sinh viên. | Context bị giới hạn trong phạm vi khóa CS50. | Cần thiết lập Hard-rule để cấm cung cấp code trực tiếp. |
+| **Khanmigo (Khan Academy)** | [Khanmigo Socratic AI](https://www.khanacademy.org/khan-labs) | Hỗ trợ giải bài tập qua phương pháp hỏi ngược lại. | Buộc người học phải tự động não. | Đôi khi quá dài dòng gây ức chế khi học viên kẹt deadline. | Không lạm dụng hỏi ngược quá nhiều, chỉ gợi ý 1-2 vòng rồi fallback. |
+| **GitHub Copilot / Cursor** | [GitHub Copilot Chat](https://github.com/features/copilot) | Phát hiện lỗi và sinh code tự động. | Context-aware cực mạnh. | **Anti-pattern:** Nhả code quá nhanh, cổ xúy thói quen "Vibe code" mù quáng. | Cấm tích hợp AI trực tiếp vào IDE sinh code. |
 
 ---
 
 ## 3. Bản đồ quy trình (Workflow) trước và sau tối ưu
 
-### 3.1. Quy trình hiện tại (Current State) — 240 phút
-Quy trình thủ công hoàn toàn, tốn thời gian viết và hiệu chỉnh nội dung.
+### 3.1. Quy trình hiện tại (Current State)
+Quy trình độc hại khi sinh viên phụ thuộc LLM.
 
 ```text
-           +---------------------------------------------+
-           | 1. Tìm & tải mẫu CV trên mạng (Canva/Word)   | (30 phút)
-           +---------------------+-----------------------+
-                                 |
-                                 v
-           +---------------------+-----------------------+
-           | 2. Liệt kê thông tin học vấn & dự án thô    | (30 phút)
-           +---------------------+-----------------------+
-                                 |
-                                 v
-           +---------------------+-----------------------+
-           | 3. Tự viết chi tiết dự án (không chuẩn STAR)| (120 phút) <--- [BOTTLENECK]
-           +---------------------+-----------------------+
-                                 |
-                                 v
-           +---------------------+-----------------------+
-           | 4. Tự dịch thuật ngữ & căn chỉnh định dạng  | (30 phút)
-           +---------------------+-----------------------+
-                                 |
-                                 v
-           +---------------------+-----------------------+
-           | 5. Nhờ mentor/bạn bè xem và sửa lại         | (Chờ 1-2 ngày)
-           +---------------------------------------------+
+[Sinh viên] Viết code --> Bị lỗi --> [Sinh viên] Đọc log lỗi đỏ (không hiểu) --> [Sinh viên] Paste đề + lỗi vào ChatGPT --> [ChatGPT] Trả đoạn code fix sẵn --> [Sinh viên] Copy & Paste đè lên code cũ --> Pass testcase nhưng rỗng kiến thức.
 ```
+**Bottleneck:** Cầu cứu AI và nhận code giải sẵn là "điểm gãy". Sinh viên hoàn thành "nghĩa vụ nộp bài" nhưng thất bại ở "mục tiêu hiểu logic".
 
-### 3.2. Quy trình tương lai hỗ trợ bởi AI (Future State) — 45 phút
-AI tự động hóa khâu viết mô tả chuẩn STAR và kiểm tra lỗi, con người giữ vai trò kiểm duyệt tính trung thực.
+### 3.2. Quy trình tương lai (Future State) - Multi-turn Workflow
+Hệ thống ép sinh viên phải tự suy nghĩ thông qua Hint.
 
 ```text
-           +---------------------------------------------+
-           | 1. Nhập thông tin thô vào CV Builder        | (15 phút)
-           +---------------------+-----------------------+
-                                 |
-                                 v
-           +---------------------+-----------------------+
-           | 2. AI đề xuất viết lại theo STAR & key JD   | (3 phút) <--- [AI INTERVENTION]
-           +---------------------+-----------------------+
-                                 |
-                                 v
-           +---------------------+-----------------------+
-           | 3. AI tự động kiểm tra format & chính tả    | (2 phút)
-           +---------------------+-----------------------+
-                                 |
-                                 v
-           +---------------------+-----------------------+
-           | 4. Sinh viên review, chỉnh sửa tính trung thực| (20 phút) <--- [HUMAN BOUNDARY]
-           +-------+-----------------------------+-------+
-                   |                             |
-     (Nội dung đúng|                             | (AI bịa đặt/mơ hồ - Fallback)
-      sự thật & JD)|                             v
-                   |                    +--------+----------------------------+
-                   |                    | Nhập lại thông tin thô chính xác    |
-                   |                    +--------+----------------------------+
-                   v                             |
-           +-------+-----------------------------+-------+
-           | 5. Xuất file PDF CV chuẩn ATS               | (5 phút)
-           +---------------------------------------------+
+[Sinh viên viết code lỗi] --> [Nạp code vào Socratic Tutor AI] --> [AI phân tích lỗi] --> (Rule: Cấm xuất code) --> [Đưa ra Hint 1: Khoanh vùng lỗi + Hỏi gợi mở] --> [Sinh viên suy nghĩ & tự sửa] 
+Nếu vẫn sai --> [Đưa ra Hint 2: Giải thích logic] --> [Sinh viên tự sửa đúng & Hiểu bài]
+Nếu sai >3 lần --> [Tag TA vào hỗ trợ 1-1]
 ```
 
 ---
 
-## 4. Problem Statement v0 & v1
+## 4. Problem Statement (v1)
 
-### 4.1. Problem Statement v0
-* **Actor:** Sinh viên ngành kỹ thuật (đặc biệt là CNTT) chuẩn bị ra trường ứng tuyển.
-* **Workflow:** Tìm mẫu -> Nhập thông tin thô -> Tự viết mô tả chi tiết -> Căn chỉnh format -> Nhờ người khác review.
-* **Bottleneck:** Bước viết mô tả chi tiết dự án theo chuẩn STAR và khớp từ khóa JD mất 120 phút nhưng chất lượng kém.
-* **Impact:** Mất 4 tiếng viết CV nhưng tỷ lệ trượt vòng lọc ATS rất cao, sinh viên mất tự tin và trễ hạn nộp CV.
-* **Success Metric:** Tổng thời gian giảm từ 4 tiếng xuống dưới 45 phút; CV đạt điểm ATS >80; tăng tỷ lệ vượt qua vòng lọc hồ sơ.
-* **Boundary:** AI không tự nộp hồ sơ; không tự động bịa đặt kinh nghiệm; ứng viên chịu trách nhiệm 100% tính xác thực.
-
-### 4.2. Problem Statement v1
-* **Actor:** Sinh viên năm cuối ngành CNTT chuẩn bị ra trường đi xin việc.
-* **Workflow:** Nhập thông tin thô -> AI đề xuất viết lại theo STAR khớp JD -> SV review chỉnh sửa -> Kiểm tra lỗi chính tả -> Xuất PDF CV chuẩn ATS.
-* **Bottleneck:** Viết mô tả dự án theo STAR và khớp từ khóa của JD mất 120 phút và chất lượng kém.
-* **Impact:** CV bị loại ở vòng lọc ATS vì thiếu từ khóa công nghệ, sinh viên trễ hạn apply và mất tự tin.
-* **Success Metric:** Giảm thời gian viết CV từ 4 tiếng xuống dưới 45 phút; CV đạt điểm ATS >80; tỷ lệ phản hồi phỏng vấn tăng từ <10% lên >25%.
-* **Boundary:** AI không tự bịa kinh nghiệm; không tự động gửi CV; chỉ là công cụ gợi ý; ứng viên chịu trách nhiệm 100% về tính trung thực.
-* **AI intervention point:** AI nhảy vào viết lại phần mô tả dự án từ bản nháp thô của sinh viên và từ khóa từ JD.
-* **Mức chọn:** Workflow
-* **Rủi ro & người thật kiểm tra:** Rủi ro AI bịa đặt kinh nghiệm (hallucinate). Người kiểm tra: SV bắt buộc phải tự đối chiếu bản AI viết với năng lực thực tế, chỉnh sửa lại các công nghệ chưa biết trước khi xuất file.
+* **Actor:** Sinh viên năm nhất (non-tech) học môn lập trình cơ sở, chưa có nền tảng tư duy thuật toán và yếu kỹ năng đọc log lỗi.
+* **Workflow:** Viết code bị lỗi → Gửi code/log cho Socratic Tutor (AI) → AI phân tích và đặt câu hỏi gợi mở → SV phản hồi/tự sửa code → Lặp lại đến khi hiểu bản chất.
+* **Bottleneck:** Sự cám dỗ của việc có đáp án ngay lập tức từ các tool AI bên ngoài làm thui chột năng lực tự gỡ rối (debug) của sinh viên.
+* **Impact:** Cải thiện triệt để kỹ năng giải quyết vấn đề tự lực (problem-solving), triệt tiêu thói quen học vẹt, copy mù quáng.
+* **Success Metric:** 
+  - Thời gian trung bình để tự gỡ lỗi thành công giảm từ 20 phút xuống < 5 phút.
+  - Tỷ lệ sinh viên nộp bài thành công sau tối đa 3-4 lượt tương tác gợi ý (turns) từ bot đạt > 80%.
+* **Boundary:** 
+  - Tuyệt đối KHÔNG xuất ra mã nguồn hoàn chỉnh.
+  - Mã giả (pseudocode) bị giới hạn: Không dùng cú pháp cấu trúc (if/for/while).
+  - Tích hợp System Prompt chống Prompt Injection (từ chối mọi yêu cầu in code).
+* **Mức chọn:** Workflow (Multi-turn chat).
 
 ---
 
@@ -146,16 +106,16 @@ AI tự động hóa khâu viết mô tả chuẩn STAR và kiểm tra lỗi, co
 
 | Mức | Phương án cho bài toán nhóm | Khi nào đủ | Rủi ro | Chọn? |
 |---|---|---|---|---|
-| **Rule** | Định dạng CV chuẩn ATS từ form điền thông tin có sẵn. | Đủ nếu người dùng đã tự viết nội dung rất tốt. | Không giải quyết được bottleneck diễn đạt và tối ưu từ khóa. | Không làm chính |
-| **Workflow** | Điền thông tin nháp -> AI đề xuất mô tả STAR khớp JD -> Người dùng chỉnh sửa -> Xuất PDF. | Đủ vì quy trình tuyến tính, AI tập trung vào một bước ngôn ngữ có con người kiểm soát. | AI có thể viết quá đà hoặc bịa đặt (hallucination). | **Chọn** |
-| **Agent** | Agent tự động thu thập LinkedIn/Github, tự tìm JD, tự viết CV và tự động nộp hồ sơ. | Cần thiết khi quy trình tuyển dụng tự động hoàn toàn ở cả hai phía. | Mất kiểm soát tính trung thực, rủi ro bảo mật thông tin cá nhân cực kỳ cao. | Không |
+| **Rule** | Dùng regex chặn từ khóa "code" trong prompt hoặc output để cấm chatbot sinh mã. | Nếu chỉ muốn cấm bot một cách cứng nhắc. | Không giúp gì cho sinh viên khi bị kẹt logic, sinh viên sẽ nản và bỏ đi tìm tool khác. | Không |
+| **Workflow** | AI đóng vai trò Socratic Tutor trong 1 phiên chat (multi-turn). Cố định luồng: SV nhập lỗi → AI dựa trên System Prompt phân tích và đặt câu hỏi gợi mở → SV trả lời/sửa → Lặp lại. | Hỗ trợ tương tác tuyến tính qua lại. AI xử lý tốt ngôn ngữ tự nhiên và giữ bối cảnh trong một phiên chat. | Sinh viên dùng thủ thuật ép bot nhả code. Cần System Prompt chặt chẽ. | **Chọn** |
+| **Agent** | AI tự động truy cập vào môi trường code của SV, tự chạy test, tự phân tích lỗi và lập kế hoạch mớm bài học theo lịch sử năng lực. | Khi cần một hệ thống AI hoàn toàn tự trị. | Over-engineering. Tốn kém tài nguyên và vượt quá phạm vi của một buổi lab. | Không |
 
-* **Quyết định:** Chọn **Workflow**. Quy trình viết CV của sinh viên là tuyến tính, cố định. Sự tham gia của con người ở bước review (human-in-the-loop) là bắt buộc để đảm bảo tính trung thực và ngăn chặn AI bịa đặt kinh nghiệm. Do đó, mô hình Workflow là tối ưu nhất.
+* **Quyết định:** Chọn **Workflow**. Việc AI đóng vai trò Tutor hỏi - đáp bản chất là một quy trình tương tác đa lượt (multi-turn), không yêu cầu AI tự gọi các công cụ bên ngoài hay tự lên kế hoạch phức tạp. Mức Workflow đáp ứng hoàn hảo tính linh hoạt, đồng thời dễ kiểm soát rủi ro hơn Agent.
 
 ---
 
 ## 6. Quyết định cuối cùng (Final Decision)
 
 * **Decision:** **Go**
-* **Lý do:** Nỗi đau của sinh viên lớn và thực tế, workflow tuyến tính rõ ràng, rủi ro thấp vì có con người kiểm duyệt chặn lỗi của AI trước khi gửi đi.
-* **Pilot nhỏ nhất:** Chạy thử nghiệm bán thủ công: Gom 5 bản CV thô của sinh viên CNTT và JD tương ứng, sử dụng prompt hệ thống đã thiết kế trên ChatGPT để AI tối ưu hóa các dòng mô tả dự án theo chuẩn STAR. Đo lường thời gian sinh viên cần để chỉnh sửa lại và đánh giá độ hài lòng.
+* **Lý do:** Bài toán giải quyết trúng "nỗi đau" lớn nhất của giáo dục lập trình hiện đại. Workflow rõ ràng, rủi ro được cô lập tốt bằng Boundary cứng (chặn code), dễ tạo dữ liệu test và chứng minh được giá trị tư duy logic của AI.
+* **Pilot nhỏ nhất:** Xây dựng một chatbot nhỏ trên nền tảng nội bộ. Nhập input là 1 bài tập kinh điển và 1 đoạn code có lỗi logic phổ biến. Mời 5 sinh viên yếu kỹ năng debug dùng thử Socratic Tutor để sửa lỗi. Đo lường thời gian hoàn thành và phỏng vấn nhanh cảm nhận của họ.
