@@ -6,103 +6,105 @@ Dưới đây là bảng xếp hạng Top 3 vấn đề cá nhân mới được
 
 | Rank | Problem | Vì sao chọn | Điều còn chưa chắc |
 |---|---|---|---|
-| 1 | **Gán nhãn dữ liệu ảnh cho bài toán Object Detection** (Problem 1) | Quy trình (workflow) cực kỳ rõ ràng, tính lặp lại cực cao. Điểm nghẽn vẽ hộp (bounding box) thủ công có thể cải thiện mạnh mẽ bằng AI auto-labeling (như SAM, YOLO) kết hợp người kiểm duyệt. | Chất lượng nhãn tự động từ AI đối với các vật thể quá nhỏ hoặc bị che khuất một phần. |
+| 1 | **Viết CV ứng tuyển chuẩn kỹ thuật cho sinh viên** (Problem 1) | Học viên kỹ thuật thường viết CV thiếu chuyên nghiệp, không tối ưu cho ATS (hệ thống lọc hồ sơ). AI có thể đóng vai tuyển dụng để gợi ý chỉnh sửa cụ thể. | Làm sao để sinh viên điền thông tin trung thực và không lạm dụng AI tự bịa kinh nghiệm (boundary). |
 | 2 | **Điều phối luồng giao thông tại nút giao bằng mô phỏng** (Problem 2) | Giải quyết một vấn đề thực tế vô cùng phức tạp và ảnh hưởng lớn đến xã hội. AI (Computer Vision) có thể đếm xe tự động và học máy tối ưu (RL/generative simulation) có thể chạy hàng ngàn kịch bản thử nghiệm ảo để thay thế thử nghiệm thực địa gây kẹt xe. | Mức độ tương thích giữa mô phỏng ảo và hành vi thực tế của người tham gia giao thông. |
-| 3 | **Viết CV ứng tuyển chuẩn kỹ thuật cho sinh viên** (Problem 3) | Học viên kỹ thuật thường viết CV thiếu chuyên nghiệp, không tối ưu cho ATS (hệ thống lọc hồ sơ). AI có thể đóng vai tuyển dụng để gợi ý chỉnh sửa cụ thể. | Làm sao để sinh viên điền thông tin trung thực và không lạm dụng AI tự bịa kinh nghiệm (boundary). |
+| 3 | **Gán nhãn dữ liệu ảnh cho bài toán Object Detection** (Problem 3) | Quy trình (workflow) cực kỳ rõ ràng, tính lặp lại cực cao. Điểm nghẽn vẽ hộp (bounding box) thủ công có thể cải thiện mạnh mẽ bằng AI auto-labeling (như SAM, YOLO) kết hợp người kiểm duyệt. | Chất lượng nhãn tự động từ AI đối với các vật thể quá nhỏ hoặc bị che khuất một phần. |
 
 ---
 
-## PROBLEM CARD #1 — Gán nhãn dữ liệu ảnh Object Detection
+## PROBLEM CARD #1 — Viết CV ứng tuyển chuẩn kỹ thuật cho sinh viên
 
 **Problem 1 câu:**  
-Kỹ sư AI hoặc cộng tác viên gán nhãn dữ liệu mất 2-3 tiếng mỗi ngày để vẽ bounding box và phân loại class thủ công cho hàng trăm bức ảnh, quy trình lặp đi lặp lại và dễ mỏi mắt, sai sót.
+Sinh viên kỹ thuật mất 3-4 tiếng để viết và định dạng một CV từ đầu nhưng nội dung thường mơ hồ, thiếu từ khóa chuyên môn kỹ thuật, không tối ưu cho hệ thống lọc hồ sơ (ATS), dẫn đến tỷ lệ bị loại từ vòng gửi xe cao.
 
 **Actor:**  
-Kỹ sư AI / Computer Vision, nhân viên gán nhãn dữ liệu (Data Labeler).
+Sinh viên ngành kỹ thuật (CNTT, Điện tử, Cơ khí...) ứng tuyển thực tập hoặc việc làm đầu ra.
 
 **Thời điểm / bối cảnh:**  
-Giai đoạn thu thập và chuẩn bị dữ liệu (Data Preparation) trước khi huấn luyện mô hình Object Detection (ví dụ: YOLO, Faster R-CNN) cho các dự án AI.
+Khi sinh viên bắt đầu tìm kiếm cơ hội thực tập (năm 3, năm 4) hoặc chuẩn bị tốt nghiệp ra trường.
 
 **Current workflow:**
-1. Thu thập ảnh raw từ camera hoặc internet và lưu vào thư mục dự án.
-2. Mở công cụ gán nhãn chuyên dụng (như CVAT, LabelImg, Roboflow).
-3. Chọn từng ảnh một từ danh sách dữ liệu.
-4. Dùng chuột kéo thả để vẽ bounding box (khung chữ nhật) bao quanh vật thể cần phát hiện một cách chính xác.
-5. Chọn nhãn (class name) phù hợp từ danh sách class có sẵn cho khung vừa vẽ.
-6. Lặp lại bước 4 và 5 cho tất cả vật thể trong ảnh hiện tại.
-7. Nhấn lưu và chuyển sang ảnh tiếp theo.
-8. Export tập dữ liệu nhãn dưới định dạng chuẩn (YOLO, Pascal VOC, COCO).
+1. Tìm kiếm và tải các mẫu CV (template) trên Canva, TopCV hoặc Word.
+2. Liệt kê các thông tin cá nhân, học vấn và các dự án môn học đã làm.
+3. Viết mô tả chi tiết cho từng dự án (mô tả công nghệ dùng, vai trò của bản thân, kết quả đạt được).
+4. Tự dịch thuật ngữ công nghệ sang tiếng Anh hoặc tiếng Việt chuẩn.
+5. Định dạng (format) căn chỉnh lề, font chữ, độ dài CV vừa vặn trong 1-2 trang.
+6. Gửi CV nhờ anh chị đi trước (mentor) hoặc bạn bè xem và sửa giúp (nếu có).
 
 **Bottleneck:**  
-Bước 4 và 5 (vẽ bounding box và gán nhãn class thủ công) chiếm 80% thời gian (trung bình 1-2 phút/ảnh tùy độ phức tạp của ảnh), gây mỏi mắt, giảm độ chính xác sau 1-2 giờ làm việc liên tục.
+Bước 3 và 5 (viết mô tả dự án kỹ thuật sao cho chuyên nghiệp, nổi bật và format CV chuẩn ATS) là khó khăn nhất. Sinh viên thường viết kiểu liệt kê chung chung ("Làm web bán hàng dùng React") thay vì viết theo mô hình STAR (Situation, Task, Action, Result) và tối ưu từ khóa ngành.
 
 **Impact:**  
-Mất 120 - 180 phút mỗi ngày cho một người gán nhãn 100 ảnh phức tạp. Đối với dự án cần 10,000 ảnh, tổng công sức là cực kỳ lớn và dễ làm chậm tiến độ dự án AI.
+Mất 3-4 tiếng để viết một bản CV nhưng chất lượng thấp, gửi đi 10-20 nơi không có phản hồi, làm sinh viên hoang mang, mất tự tin.
 
 **Success metric:**  
-Giảm tổng thời gian gán nhãn cho 100 ảnh từ 120 phút xuống dưới 25 phút (giảm ~80% thời gian), trong khi chất lượng nhãn (độ khớp của box - IoU và độ chính xác của class) được bảo toàn sau bước người kiểm duyệt duyệt lại.
+Thời gian hoàn thiện CV giảm từ 4 tiếng xuống còn 45 phút; CV sau chỉnh sửa có đầy đủ từ khóa chuyên môn đạt điểm đánh giá ATS cao hơn (>80 điểm trên các công cụ chấm CV tự động); tăng tỷ lệ nhận phản hồi phỏng vấn từ nhà tuyển dụng.
 
 **Non-AI alternative:**  
-Sử dụng phím tắt (hotkeys) tối ưu trong tool hoặc thuê ngoài (outsource) quy trình gán nhãn cho các bên dịch vụ dữ liệu (nhưng tốn chi phí lớn và khó bảo mật dữ liệu nội bộ).
+Sử dụng các CV Builder có sẵn form mẫu điền thông tin (chỉ giải quyết được phần format, không giải quyết được chất lượng viết nội dung mô tả kỹ thuật của sinh viên).
 
 **AI hypothesis:**  
-Sử dụng mô hình AI pre-trained lớn (như Segment Anything Model - SAM hoặc một mô hình Object Detection pre-trained) để tự động phát hiện vật thể, vẽ bounding box và đề xuất class. Người gán nhãn chỉ đóng vai trò kiểm duyệt, điều chỉnh (fine-tune) lại các hộp vẽ lệch hoặc sửa các nhãn sai sót (semi-automatic labeling).
+AI hỗ trợ chuyển đổi các mô tả dự án sơ sài của sinh viên thành các gạch đầu dòng chuyên nghiệp theo chuẩn STAR và tối ưu từ khóa kỹ thuật khớp với JD (Job Description) cụ thể, đồng thời tự động kiểm tra lỗi logic/cú pháp.
 
 **Quick gut:**  
 `[x]` Workflow  
-(Quy trình tuyến tính rõ ràng, các bước nối tiếp cố định, AI đóng vai trò hỗ trợ một bước cụ thể dưới sự giám sát của con người).
+(Quy trình tương tác qua lại: Nhập liệu -> AI gợi ý tối ưu -> Người dùng chỉnh sửa và duyệt).
 
 ### Draft current workflow
 ```text
-CURRENT STATE — 120 phút / 100 ảnh
+CURRENT STATE — 240 phút (4 tiếng)
 
            +---------------------------------------------+
-           | 1. Tải ảnh & tạo project trong tool (10')   |
+           | 1. Chọn & căn chỉnh template thiết kế (30') |
            +---------------------+-----------------------+
                                  |
                                  v
            +---------------------+-----------------------+
-           | 2. Vẽ bounding box thủ công từng vật thể (90') <--- [BOTTLENECK]
+           | 2. Liệt kê học vấn & dự án môn học (30')    |
            +---------------------+-----------------------+
                                  |
                                  v
            +---------------------+-----------------------+
-           | 3. Chọn nhãn (class) cho từng box (15')     |
+           | 3. Tự viết mô tả chi tiết dự án (120')      | <--- [BOTTLENECK]
            +---------------------+-----------------------+
                                  |
                                  v
            +---------------------+-----------------------+
-           | 4. Export dữ liệu nhãn (5')                 |
+           | 4. Tự sửa chính tả, dịch thuật ngữ (30')    |
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 5. Định dạng căn chỉnh lề vừa trang (30')   |
            +---------------------------------------------+
 ```
 
 ### Draft future workflow
 ```text
-FUTURE STATE — 20 phút / 100 ảnh
+FUTURE STATE — 45 phút
 
            +---------------------------------------------+
-           | 1. Tải ảnh vào tool tích hợp AI (5')        |
+           | 1. Nhập thông tin thô vào CV Builder (15')  |
            +---------------------+-----------------------+
                                  |
                                  v
            +---------------------+-----------------------+
-           | 2. AI tự động vẽ box & dự đoán class (2')   |
+           | 2. AI đề xuất viết lại theo STAR & key (3') | <--- [AI SUGGESTION]
            +---------------------+-----------------------+
                                  |
                                  v
            +---------------------+-----------------------+
-           | 3. Kỹ sư AI kiểm duyệt & chỉnh sửa (10')    | <--- [HUMAN BOUNDARY]
-           +-------+-----------------------------+-------+
-                   |                             |
-     (AI dự đoán OK|                             | (AI dự đoán sai lệch nhiều / Fallback)
-            hoặc đã|                             |
-         chỉnh sửa)|                             v
-                   |                    +--------+----------------------------+
-                   |                    | Kỹ sư bỏ qua AI & vẽ tay thủ công   |
-                   |                    +--------+----------------------------+
-                   v                             |
-           +-------+-----------------------------+-------+
-           | 4. Export dữ liệu nhãn đã chuẩn hóa (3')     |
+           | 3. AI tự động kiểm tra format & chính tả (2')|
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 4. Sinh viên review & tinh chỉnh theo JD(20')| <--- [HUMAN BOUNDARY]
+           +---------------------+-----------------------+
+                                 |
+                                 v
+           +---------------------+-----------------------+
+           | 5. Xuất file PDF CV chuẩn ATS (5')          |
            +---------------------------------------------+
 ```
 
@@ -206,99 +208,97 @@ FUTURE STATE — 2 ngày (mô phỏng số + AI)
 
 ---
 
-## PROBLEM CARD #3 — Viết CV ứng tuyển chuẩn kỹ thuật cho sinh viên
+## PROBLEM CARD #3 — Gán nhãn dữ liệu ảnh Object Detection
 
 **Problem 1 câu:**  
-Sinh viên kỹ thuật mất 3-4 tiếng để viết và định dạng một CV từ đầu nhưng nội dung thường mơ hồ, thiếu từ khóa chuyên môn kỹ thuật, không tối ưu cho hệ thống lọc hồ sơ (ATS), dẫn đến tỷ lệ bị loại từ vòng gửi xe cao.
+Kỹ sư AI hoặc cộng tác viên gán nhãn dữ liệu mất 2-3 tiếng mỗi ngày để vẽ bounding box và phân loại class thủ công cho hàng trăm bức ảnh, quy trình lặp đi lặp lại và dễ mỏi mắt, sai sót.
 
 **Actor:**  
-Sinh viên ngành kỹ thuật (CNTT, Điện tử, Cơ khí...) ứng tuyển thực tập hoặc việc làm đầu ra.
+Kỹ sư AI / Computer Vision, nhân viên gán nhãn dữ liệu (Data Labeler).
 
 **Thời điểm / bối cảnh:**  
-Khi sinh viên bắt đầu tìm kiếm cơ hội thực tập (năm 3, năm 4) hoặc chuẩn bị tốt nghiệp ra trường.
+Giai đoạn thu thập và chuẩn bị dữ liệu (Data Preparation) trước khi huấn luyện mô hình Object Detection (ví dụ: YOLO, Faster R-CNN) cho các dự án AI.
 
 **Current workflow:**
-1. Tìm kiếm và tải các mẫu CV (template) trên Canva, TopCV hoặc Word.
-2. Liệt kê các thông tin cá nhân, học vấn và các dự án môn học đã làm.
-3. Viết mô tả chi tiết cho từng dự án (mô tả công nghệ dùng, vai trò của bản thân, kết quả đạt được).
-4. Tự dịch thuật ngữ công nghệ sang tiếng Anh hoặc tiếng Việt chuẩn.
-5. Định dạng (format) căn chỉnh lề, font chữ, độ dài CV vừa vặn trong 1-2 trang.
-6. Gửi CV nhờ anh chị đi trước (mentor) hoặc bạn bè xem và sửa giúp (nếu có).
+1. Thu thập ảnh raw từ camera hoặc internet và lưu vào thư mục dự án.
+2. Mở công cụ gán nhãn chuyên dụng (như CVAT, LabelImg, Roboflow).
+3. Chọn từng ảnh một từ danh sách dữ liệu.
+4. Dùng chuột kéo thả để vẽ bounding box (khung chữ nhật) bao quanh vật thể cần phát hiện một cách chính xác.
+5. Chọn nhãn (class name) phù hợp từ danh sách class có sẵn cho khung vừa vẽ.
+6. Lặp lại bước 4 và 5 cho tất cả vật thể trong ảnh hiện tại.
+7. Nhấn lưu và chuyên sang ảnh tiếp theo.
+8. Export tập dữ liệu nhãn dưới định dạng chuẩn (YOLO, Pascal VOC, COCO).
 
 **Bottleneck:**  
-Bước 3 và 5 (viết mô tả dự án kỹ thuật sao cho chuyên nghiệp, nổi bật và format CV chuẩn ATS) là khó khăn nhất. Sinh viên thường viết kiểu liệt kê chung chung ("Làm web bán hàng dùng React") thay vì viết theo mô hình STAR (Situation, Task, Action, Result) và tối ưu từ khóa ngành.
+Bước 4 và 5 (vẽ bounding box và gán nhãn class thủ công) chiếm 80% thời gian (trung bình 1-2 phút/ảnh tùy độ phức tạp của ảnh), gây mỏi mắt, giảm độ chính xác sau 1-2 giờ làm việc liên tục.
 
 **Impact:**  
-Mất 3-4 tiếng để viết một bản CV nhưng chất lượng thấp, gửi đi 10-20 nơi không có phản hồi, làm sinh viên hoang mang, mất tự tin.
+Mất 120 - 180 phút mỗi ngày cho một người gán nhãn 100 ảnh phức tạp. Đối với dự án cần 10,000 ảnh, tổng công sức là cực kỳ lớn và dễ làm chậm tiến độ dự án AI.
 
 **Success metric:**  
-Thời gian hoàn thiện CV giảm từ 4 tiếng xuống còn 45 phút; CV sau chỉnh sửa có đầy đủ từ khóa chuyên môn đạt điểm đánh giá ATS cao hơn (>80 điểm trên các công cụ chấm CV tự động); tăng tỷ lệ nhận phản hồi phỏng vấn từ nhà tuyển dụng.
+Giảm tổng thời gian gán nhãn cho 100 ảnh từ 120 phút xuống dưới 25 phút (giảm ~80% thời gian), trong khi chất lượng nhãn (độ khớp của box - IoU và độ chính xác của class) được bảo toàn sau bước người kiểm duyệt duyệt lại.
 
 **Non-AI alternative:**  
-Sử dụng các CV Builder có sẵn form mẫu điền thông tin (chỉ giải quyết được phần format, không giải quyết được chất lượng viết nội dung mô tả kỹ thuật của sinh viên).
+Sử dụng phím tắt (hotkeys) tối ưu trong tool hoặc thuê ngoài (outsource) quy trình gán nhãn cho các bên dịch vụ dữ liệu (nhưng tốn chi phí lớn và khó bảo mật dữ liệu nội bộ).
 
 **AI hypothesis:**  
-AI hỗ trợ chuyển đổi các mô tả dự án sơ sài của sinh viên thành các gạch đầu dòng chuyên nghiệp theo chuẩn STAR và tối ưu từ khóa kỹ thuật khớp với JD (Job Description) cụ thể, đồng thời tự động kiểm tra lỗi logic/cú pháp.
+Sử dụng mô hình AI pre-trained lớn (như Segment Anything Model - SAM hoặc một mô hình Object Detection pre-trained) để tự động phát hiện vật thể, vẽ bounding box và đề xuất class. Người gán nhãn chỉ đóng vai trò kiểm duyệt, điều chỉnh (fine-tune) lại các hộp vẽ lệch hoặc sửa các nhãn sai sót (semi-automatic labeling).
 
 **Quick gut:**  
 `[x]` Workflow  
-(Quy trình tương tác qua lại: Nhập liệu -> AI gợi ý tối ưu -> Người dùng chỉnh sửa và duyệt).
+(Quy trình tuyến tính rõ ràng, các bước nối tiếp cố định, AI đóng vai trò hỗ trợ một bước cụ thể dưới sự giám sát của con người).
 
 ### Draft current workflow
 ```text
-CURRENT STATE — 240 phút (4 tiếng)
+CURRENT STATE — 120 phút / 100 ảnh
 
            +---------------------------------------------+
-           | 1. Chọn & căn chỉnh template thiết kế (30') |
+           | 1. Tải ảnh & tạo project trong tool (10')   |
            +---------------------+-----------------------+
                                  |
                                  v
            +---------------------+-----------------------+
-           | 2. Liệt kê học vấn & dự án môn học (30')    |
+           | 2. Vẽ bounding box thủ công từng vật thể (90') <--- [BOTTLENECK]
            +---------------------+-----------------------+
                                  |
                                  v
            +---------------------+-----------------------+
-           | 3. Tự viết mô tả chi tiết dự án (120')      | <--- [BOTTLENECK]
+           | 3. Chọn nhãn (class) cho từng box (15')     |
            +---------------------+-----------------------+
                                  |
                                  v
            +---------------------+-----------------------+
-           | 4. Tự sửa chính tả, dịch thuật ngữ (30')    |
-           +---------------------+-----------------------+
-                                 |
-                                 v
-           +---------------------+-----------------------+
-           | 5. Định dạng căn chỉnh lề vừa trang (30')   |
+           | 4. Export dữ liệu nhãn (5')                 |
            +---------------------------------------------+
 ```
 
 ### Draft future workflow
 ```text
-FUTURE STATE — 45 phút
+FUTURE STATE — 20 phút / 100 ảnh
 
            +---------------------------------------------+
-           | 1. Nhập thông tin thô vào CV Builder (15')  |
+           | 1. Tải ảnh vào tool tích hợp AI (5')        |
            +---------------------+-----------------------+
                                  |
                                  v
            +---------------------+-----------------------+
-           | 2. AI đề xuất viết lại theo STAR & key (3') | <--- [AI SUGGESTION]
+           | 2. AI tự động vẽ box & dự đoán class (2')   |
            +---------------------+-----------------------+
                                  |
                                  v
            +---------------------+-----------------------+
-           | 3. AI tự động kiểm tra format & chính tả (2')|
-           +---------------------+-----------------------+
-                                 |
-                                 v
-           +---------------------+-----------------------+
-           | 4. Sinh viên review & tinh chỉnh theo JD(20')| <--- [HUMAN BOUNDARY]
-           +---------------------+-----------------------+
-                                 |
-                                 v
-           +---------------------+-----------------------+
-           | 5. Xuất file PDF CV chuẩn ATS (5')          |
+           | 3. Kỹ sư AI kiểm duyệt & chỉnh sửa (10')    | <--- [HUMAN BOUNDARY]
+           +-------+-----------------------------+-------+
+                   |                             |
+     (AI dự đoán OK|                             | (AI dự đoán sai lệch nhiều / Fallback)
+            hoặc đã|                             |
+         chỉnh sửa)|                             v
+                   |                    +--------+----------------------------+
+                   |                    | Kỹ sư bỏ qua AI & vẽ tay thủ công   |
+                   |                    +--------+----------------------------+
+                   v                             |
+           +-------+-----------------------------+-------+
+           | 4. Export dữ liệu nhãn đã chuẩn hóa (3')     |
            +---------------------------------------------+
 ```
 
@@ -307,14 +307,13 @@ FUTURE STATE — 45 phút
 ## Lựa chọn Card muốn Pitch nhất với Nhóm
 
 ### Card tôi muốn pitch nhất:
-**PROBLEM CARD #1 — Gán nhãn dữ liệu ảnh Object Detection**
+**PROBLEM CARD #1 — Viết CV ứng tuyển chuẩn kỹ thuật cho sinh viên**
 
 ### Vì sao:
-- **Tần suất và mức độ lặp lại rất cao:** Đây là công việc cổ điển nhưng luôn gây nhức nhối trong phát triển phần mềm AI. Quy trình vẽ bounding box lặp lại hàng nghìn lần vô cùng nhàm chán và tốn thời gian của các AI Engineer.
-- **Workflow rõ ràng bậc nhất:** Bản chất của việc gán nhãn là tuyến tính, các bước thao tác trên tool cực kỳ dễ chuẩn hóa.
-- **Có giải pháp công nghệ khả thi và sẵn có:** Hiện tại đã có các mô hình như SAM (Segment Anything Model) từ Meta hoặc YOLO Auto-labeling, việc tích hợp vào workflow gán nhãn thực tế là hoàn toàn khả thi và đem lại hiệu quả tức thì.
-- **Metric đo lường cực kỳ cụ thể:** Có thể đo lường trực tiếp bằng thời gian hoàn thành (phút/ảnh) và so sánh chênh lệch rõ ràng trước/sau.
+- **Nỗi đau thực tế và ảnh hưởng trực tiếp:** Sinh viên kỹ thuật thường rất mơ hồ trong việc tự mô tả năng lực và viết CV. Đây lại là bước đầu tiên và quan trọng nhất quyết định việc họ có cơ hội bước vào vòng phỏng vấn hay không.
+- **Có bottleneck và metric cải thiện rõ ràng:** Bước tự viết mô tả dự án theo chuẩn STAR chiếm nhiều thời gian nhất (120 phút) và chất lượng kém nhất. Việc giảm thời gian viết CV từ 4 tiếng xuống 45 phút mà vẫn đảm bảo định dạng và từ khóa chuẩn ATS mang lại giá trị rất lớn.
+- **Ranh giới AI (Human boundary) rất rõ:** AI chỉ đóng vai trò hỗ trợ diễn đạt và tối ưu từ khóa dựa trên thông tin thô do sinh viên cung cấp, còn sinh viên bắt buộc phải kiểm duyệt và xác thực tính trung thực để tránh việc AI tự bịa đặt kinh nghiệm.
 
 ### Câu hỏi tôi muốn nhóm challenge:
-- *"Làm thế nào để đo lường độ chính xác của nhãn do AI vẽ tự động (IoU, Class classification) một cách nhanh chóng mà không làm tăng thời gian kiểm duyệt của Kỹ sư AI quá mức?"*
-- *"Với các lớp đối tượng mới chưa có mô hình pre-trained tốt, liệu workflow này có thực sự mang lại hiệu quả vượt trội so với gán nhãn thủ công ngay từ đầu không?"*
+- *"Làm thế nào để hệ thống ngăn chặn triệt để tình trạng sinh viên lạm dụng AI để tự động bịa ra các dự án hoặc kinh nghiệm không có thật (AI hallucination/fabrication)?"*
+- *"CV chuẩn ATS và phong cách viết kỹ thuật của mỗi doanh nghiệp/vị trí là khác nhau, làm sao để AI tối ưu hóa CV chính xác theo từng JD cụ thể mà không làm mất đi bản sắc cá nhân của ứng viên?"*
